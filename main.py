@@ -9,7 +9,7 @@ COMPANY_NAME = "Tesla Inc"
 
 # STEP 1: Use https://www.alphavantage.co
 # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
-stock_api = "-----api key----"    # api from https://www.alphavantage.co/
+stock_api = " "    # api from https://www.alphavantage.co/
 url = "https://www.alphavantage.co/query"
 parameters = {
     "function": "TIME_SERIES_DAILY",
@@ -34,9 +34,9 @@ fluctuation = (float(yesterday_price) - float(day_before_yesterday_price))
 # STEP 3: Use https://www.twilio.com OR send mail
 # Send a seperate message with the percentage change and each article's title and description to your phone number. 
 def send_mail(fluctuation="", message=''):
-    my_email = "---sender mail---"
-    send_to = "---receiver mail---"
-    password = "---type sender password---"
+    my_email = " " #"---sender mail---"
+    send_to = " " #"---receiver mail---"
+    password = " "  #"---type sender password---"
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()  # transport layer security
         connection.login(user=my_email, password=password)
@@ -59,7 +59,7 @@ if abs(fluctuation) > 5:
     news_params = {
         'language': 'en',
         'qInTitle': COMPANY_NAME,
-        "apiKey": "---api key for newsapi---"
+        "apiKey": " "  #"---api key for newsapi---"
     }
     news_response = requests.get(url=news_url, params=news_params)
     news_article = html.unescape(news_response.json())['articles'][:3]
