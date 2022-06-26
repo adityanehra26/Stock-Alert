@@ -9,13 +9,13 @@ COMPANY_NAME = "Tesla Inc"
 
 # STEP 1: Use https://www.alphavantage.co
 # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
-stock_api = "F7ZNWTGC45G0I8BK"    # api from https://www.alphavantage.co/
+stock_api = "-----api key----"    # api from https://www.alphavantage.co/
 url = "https://www.alphavantage.co/query"
 parameters = {
     "function": "TIME_SERIES_DAILY",
     "symbol": STOCK,
     "outputsize": "compact",
-    "apikey": "F7ZNWTGC45G0I8BK"
+    "apikey": "---api key0-----"
 }
 
 response = requests.get(url=url, params=parameters)
@@ -34,9 +34,9 @@ fluctuation = (float(yesterday_price) - float(day_before_yesterday_price))
 # STEP 3: Use https://www.twilio.com OR send mail
 # Send a seperate message with the percentage change and each article's title and description to your phone number. 
 def send_mail(fluctuation="", message=''):
-    my_email = "sender mail"
-    send_to = "receiver mail"
-    password = "type sender password"
+    my_email = "---sender mail---"
+    send_to = "---receiver mail---"
+    password = "---type sender password---"
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()  # transport layer security
         connection.login(user=my_email, password=password)
@@ -54,12 +54,12 @@ if abs(fluctuation) > 5:
     # ================================================================================================================ #
     # STEP 2: Use https://newsapi.org
     # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
-    news_api = "c5f90d84224642c4bf09dcf91a991f4e"
+    news_api = "apikey"
     news_url = "https://newsapi.org/v2/everything"
     news_params = {
         'language': 'en',
         'qInTitle': COMPANY_NAME,
-        "apiKey": "c5f90d84224642c4bf09dcf91a991f4e"
+        "apiKey": "---api key for newsapi---"
     }
     news_response = requests.get(url=news_url, params=news_params)
     news_article = html.unescape(news_response.json())['articles'][:3]
