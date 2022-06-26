@@ -2,7 +2,7 @@ import smtplib
 import requests
 import html
 
-STOCK = "TSLA"
+STOCK = "TSLA"  # checking stock of tesla inc.
 COMPANY_NAME = "Tesla Inc"
 
 # ==================================================================================================================== #
@@ -34,9 +34,9 @@ fluctuation = (float(yesterday_price) - float(day_before_yesterday_price))
 # STEP 3: Use https://www.twilio.com OR send mail
 # Send a seperate message with the percentage change and each article's title and description to your phone number. 
 def send_mail(fluctuation="", message=''):
-    my_email = "studydemo26@gmail.com"
-    send_to = "gullupagal@gmail.com"
-    password = "Root@2021"
+    my_email = "sender mail"
+    send_to = "receiver mail"
+    password = "type sender password"
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()  # transport layer security
         connection.login(user=my_email, password=password)
